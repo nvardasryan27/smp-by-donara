@@ -37,7 +37,7 @@ const FAQ = () => {
 
           <motion.div
             className="faq-list"
-            initial="hidden"
+            initial={false}
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={{

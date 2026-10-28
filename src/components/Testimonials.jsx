@@ -1,3 +1,4 @@
+
 import { motion } from "motion/react";
 import { Quote, Star } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
@@ -7,7 +8,10 @@ const ease = [0.22, 1, 0.36, 1];
 
 const Testimonials = () => {
   const { language } = useLanguage();
-  const t = translations[language];
+
+  const current = translations[language] ?? translations.hy;
+  const testimonialData =
+    current.testimonials ?? translations.hy.testimonials;
 
   return (
     <section className="section testimonials">
@@ -20,15 +24,15 @@ const Testimonials = () => {
           transition={{ duration: 0.7, ease }}
         >
           <span className="eyebrow">
-            {t.testimonials.eyebrow}
+            {testimonialData.eyebrow}
           </span>
 
-          <h2>{t.testimonials.title}</h2>
+          <h2>{testimonialData.title}</h2>
         </motion.div>
 
         <motion.div
           className="testimonials-grid"
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           variants={{
@@ -38,10 +42,10 @@ const Testimonials = () => {
             },
           }}
         >
-          {t.testimonials.items.map((item) => (
+          {testimonialData.items.map((item) => (
             <motion.article
               className="testimonial-card"
-              key={item.name}
+              key={`${language}-${item.name}`}
               variants={{
                 hidden: { opacity: 0, y: 30 },
                 visible: {
@@ -53,14 +57,7 @@ const Testimonials = () => {
               whileHover={{ y: -5 }}
               transition={{ duration: 0.25, ease }}
             >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.15, ease }}
-              >
-                <Quote className="quote-icon" size={30} />
-              </motion.div>
+              <Quote className="quote-icon" size={30} />
 
               <div className="stars">
                 {[1, 2, 3, 4, 5].map((star) => (
