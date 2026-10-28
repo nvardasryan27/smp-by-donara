@@ -1,3 +1,4 @@
+
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import {
@@ -5,26 +6,40 @@ import {
   ArrowLeft,
   ArrowRight,
   X,
-  Plus,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import translations from "../data/translations";
 
+import result1 from "../assets/images/result-1.jpg";
+import result2 from "../assets/images/result-2.jpg";
+import result3 from "../assets/images/result-3.jpg";
+import result4 from "../assets/images/result-4.jpg";
+import result5 from "../assets/images/result-5.jpg";
+import result6 from "../assets/images/result-6.jpg";
+import result7 from "../assets/images/result-7.jpg";
+import result8 from "../assets/images/result-8.jpg";
+import result9 from "../assets/images/result-9.jpg";
+import result10 from "../assets/images/result-10.jpg";
+import result11 from "../assets/images/result-11.jpg";
+import result12 from "../assets/images/result-12.jpg";
+import result133 from "../assets/images/result-133.jpg";
+import result14 from "../assets/images/result-14.jpg";
+
 const results = [
-  { image: "/src/assets/images/result-1.jpg" },
-  { image: "/src/assets/images/result-2.jpg" },
-  { image: "/src/assets/images/result-3.jpg" },
-  { image: "/src/assets/images/result-4.jpg" },
-  { image: "/src/assets/images/result-6.jpg" },
-  { image: "/src/assets/images/result-5.jpg" },
-  { image: "/src/assets/images/result-7.jpg" },
-  { image: "/src/assets/images/result-8.jpg" },
-  { image: "/src/assets/images/result-9.jpg" },
-  { image: "/src/assets/images/result-10.jpg" },
-  { image: "/src/assets/images/result-11.jpg" },
-  { image: "/src/assets/images/result-12.jpg" },
-  { image: "/src/assets/images/result-133.jpg" },
-  { image: "/src/assets/images/result-14.jpg" },
+  { image: result1 },
+  { image: result2 },
+  { image: result3 },
+  { image: result4 },
+  { image: result6 },
+  { image: result5 },
+  { image: result7 },
+  { image: result8 },
+  { image: result9 },
+  { image: result10 },
+  { image: result11 },
+  { image: result12 },
+  { image: result133 },
+  { image: result14 },
 ];
 
 const ease = [0.22, 1, 0.36, 1];
@@ -37,7 +52,6 @@ const BeforeAfter = () => {
   const [itemsPerPage, setItemsPerPage] = useState(2);
   const [selectedResult, setSelectedResult] = useState(null);
 
-  // Desktop: 2 images, mobile: 1 image
   useEffect(() => {
     const updateLayout = () => {
       setItemsPerPage(window.innerWidth <= 600 ? 1 : 2);
@@ -46,9 +60,7 @@ const BeforeAfter = () => {
     updateLayout();
     window.addEventListener("resize", updateLayout);
 
-    return () => {
-      window.removeEventListener("resize", updateLayout);
-    };
+    return () => window.removeEventListener("resize", updateLayout);
   }, []);
 
   const totalPages = Math.ceil(results.length / itemsPerPage);
@@ -59,33 +71,28 @@ const BeforeAfter = () => {
   );
 
   const previous = () => {
-    setActive((prev) =>
-      prev === 0 ? totalPages - 1 : prev - 1
-    );
+    setActive((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
   };
 
   const next = () => {
-    setActive((prev) =>
-      prev >= totalPages - 1 ? 0 : prev + 1
-    );
+    setActive((prev) => (prev >= totalPages - 1 ? 0 : prev + 1));
   };
 
-  // Close popup with Escape
   useEffect(() => {
     if (!selectedResult) return;
 
     const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setSelectedResult(null);
-      }
+      if (event.key === "Escape") setSelectedResult(null);
     };
 
     document.addEventListener("keydown", handleKeyDown);
+
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
     };
   }, [selectedResult]);
 
@@ -100,10 +107,7 @@ const BeforeAfter = () => {
           transition={{ duration: 0.7, ease }}
         >
           <div>
-            <span className="eyebrow">
-              {t.results.eyebrow}
-            </span>
-
+            <span className="eyebrow">{t.results.eyebrow}</span>
             <h2>{t.results.title}</h2>
           </div>
 
@@ -128,14 +132,10 @@ const BeforeAfter = () => {
                 transition={{ duration: 0.35, ease }}
               >
                 {visibleResults.map((item, index) => {
-                  const imageIndex =
-                    active * itemsPerPage + index;
+                  const imageIndex = active * itemsPerPage + index;
 
                   return (
-                    <div
-                      className="result-item"
-                      key={item.image}
-                    >
+                    <div className="result-item" key={item.image}>
                       <button
                         type="button"
                         className="result-image"
@@ -201,7 +201,6 @@ const BeforeAfter = () => {
         </motion.div>
       </div>
 
-      {/* RESULT DETAILS POPUP */}
       <AnimatePresence>
         {selectedResult && (
           <motion.div
@@ -245,7 +244,6 @@ const BeforeAfter = () => {
                 </span>
 
                 <h3>{t.results.title}</h3>
-
                 <p>{t.results.description}</p>
 
                 <a
