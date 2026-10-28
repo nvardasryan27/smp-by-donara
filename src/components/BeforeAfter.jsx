@@ -3,20 +3,26 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import translations from "../data/translations";
-import resultBanner from "../assets/result.jpg";
 
 const results = [
-  {
-    before: "/images/before-1.jpg",
-    after: "/images/after-1.jpg",
-  },
-  {
-    before: "/images/before-2.jpg",
-    after: "/images/after-2.jpg",
-  },
+  { image: "/src/assets/images/result-1.jpg" },
+  { image: "/src/assets/images/result-2.jpg" },
+  { image: "/src/assets/images/result-3.jpg" },
+  { image: "/src/assets/images/result-4.jpg" },
+  { image: "/src/assets/images/result-6.jpg" },
+  { image: "/src/assets/images/result-5.jpg" },
+  { image: "/src/assets/images/result-7.jpg" },
+  { image: "/src/assets/images/result-8.jpg" },
+  { image: "/src/assets/images/result-9.jpg" },
+  { image: "/src/assets/images/result-10.jpg" },
+  { image: "/src/assets/images/result-11.jpg" },
+  { image: "/src/assets/images/result-12.jpg" },
+  { image: "/src/assets/images/result-133.jpg" },
+  { image: "/src/assets/images/result-14.jpg" },
 ];
 
 const ease = [0.22, 1, 0.36, 1];
+const itemsPerPage = 2;
 
 const BeforeAfter = () => {
   const { language } = useLanguage();
@@ -24,17 +30,22 @@ const BeforeAfter = () => {
 
   const [active, setActive] = useState(0);
 
-  const current = results[active];
+  const totalPages = Math.ceil(results.length / itemsPerPage);
+
+  const visibleResults = results.slice(
+    active * itemsPerPage,
+    active * itemsPerPage + itemsPerPage
+  );
 
   const previous = () => {
     setActive((prev) =>
-      prev === 0 ? results.length - 1 : prev - 1
+      prev === 0 ? totalPages - 1 : prev - 1
     );
   };
 
   const next = () => {
     setActive((prev) =>
-      prev === results.length - 1 ? 0 : prev + 1
+      prev === totalPages - 1 ? 0 : prev + 1
     );
   };
 
@@ -66,37 +77,26 @@ const BeforeAfter = () => {
           <div className="before-after-card">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
-                className="result-image"
-                key={`before-${active}`}
-                initial={{ opacity: 0, x: -15 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 10 }}
-                transition={{ duration: 0.35, ease }}
-              >
-                <img
-                  src={current.before}
-                  alt={t.results.before}
-                />
-
-                <span>{t.results.before}</span>
-              </motion.div>
-            </AnimatePresence>
-
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                className="result-image"
-                key={`after-${active}`}
+                key={`results-page-${active}`}
+                className="results-images"
                 initial={{ opacity: 0, x: 15 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -10 }}
+                exit={{ opacity: 0, x: -15 }}
                 transition={{ duration: 0.35, ease }}
               >
-                <img
-                  src={current.after}
-                  alt={t.results.after}
-                />
-
-                <span>{t.results.after}</span>
+                {visibleResults.map((item, index) => (
+                  <div
+                    className="result-image"
+                    key={item.image}
+                  >
+                    <img
+                      src={item.image}
+                      alt={`${t.results.title} ${
+                        active * itemsPerPage + index + 1
+                      }`}
+                    />
+                  </div>
+                ))}
               </motion.div>
             </AnimatePresence>
           </div>
@@ -110,7 +110,7 @@ const BeforeAfter = () => {
           >
             <span>
               {String(active + 1).padStart(2, "0")} /{" "}
-              {String(results.length).padStart(2, "0")}
+              {String(totalPages).padStart(2, "0")}
             </span>
 
             <div>

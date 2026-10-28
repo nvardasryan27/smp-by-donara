@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useLanguage } from "../context/LanguageContext";
 import translations from "../data/translations";
 import heroBanner from "../assets/hero--banner-2.png";
+import heroBannerMobile from "../assets/hero-banner-2-mobile.png";
 
 const particles = Array.from({ length: 22 }, (_, i) => ({
   id: i,
@@ -24,7 +25,10 @@ const Hero = () => {
     <section
       className="hero"
       id="home"
-      style={{ "--hero-image": `url(${heroBanner})` }}
+      style={{
+        "--hero-image": `url(${heroBanner})`,
+        "--hero-image-mobile": `url(${heroBannerMobile})`,
+      }}
     >
       <div className="hero-effects" aria-hidden="true">
         <motion.div

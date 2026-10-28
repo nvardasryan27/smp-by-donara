@@ -1,8 +1,8 @@
 import serviceHairline from "../assets/images/service-hairline.jpg";
 import serviceDensity from "../assets/images/service-density.jpg";
-// import serviceBald from "../assets/images/service-bald.jpg";
+import serviceBald from "../assets/images/service-bald.jpg";
 import serviceAlopecia from "../assets/images/service-alopecia.jpg";
-// import serviceScar from "../assets/images/service-scar.jpg";
+import serviceScar from "../assets/images/service-scar.jpg";
 import serviceTransplant from "../assets/images/service-transplant.jpg";
 
 const translations = {
@@ -88,12 +88,12 @@ const translations = {
           number: "03",
           title: "Ճաղատ հատվածների քողարկում",
           imageAlt: "Ճաղատ հատվածների քողարկում",
-          //image: serviceBald,
+          image: serviceBald,
           description:
-            "Միկրոպիգմենտացիայի միջոցով ստեղծվում է սափրված մազերի բնական տեսք՝ գլխամաշկի և մազերի միջև տեսողական հակադրությունը մեղմելու համար։",
+            "Տրիխոպիգմենտացիայի միջոցով ստեղծում ենք մազարմատների տեսք՝ ապահովելով սափրված գլխի էֆեկտ և ավելի ամբողջական, խնամված արտաքին։",
           details: [
+            "Ճաղատությո՞ւն։ Կա լուծում։",
             "Կարճ սափրված մազերի տեսողական էֆեկտ",
-            "Գլխամաշկի և մազերի միջև հակադրության մեղմացում",
             "Անհատական մազագծի և գունային երանգի ընտրություն",
           ],
         },
@@ -114,7 +114,7 @@ const translations = {
           number: "05",
           title: "Սպիների քողարկում",
           imageAlt: "Սպիների քողարկում",
-          //image: serviceScar,
+          image: serviceScar,
           description:
             "Մազերի փոխպատվաստումից կամ այլ միջամտություններից հետո առաջացած որոշ սպիների տեսանելիության նվազեցում՝ համապատասխան գնահատումից հետո։",
           details: [
