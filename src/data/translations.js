@@ -375,45 +375,87 @@ const translations = {
     services: {
       eyebrow: "SERVICES",
       title: "What Services Do I Offer?",
-      learnMore: "Learn more",
-      bookNow: "Book an appointment",
-    
+      learnMore: "Learn More",
+      bookNow: "Book an Appointment",
+
       items: [
         {
           number: "01",
           title: "Hairline Design",
+          imageAlt: "Hairline design",
+          image: serviceHairline,
           description:
             "Creating a natural and harmonious hairline tailored to the shape of the face and individual features.",
+          details: [
+            "A personalized approach based on facial shape",
+            "A natural-looking hairline",
+            "Individual selection of pigment color and density",
+          ],
         },
         {
           number: "02",
           title: "Thinning Hair Density Enhancement",
+          imageAlt: "Visual density enhancement for thinning hair",
+          image: serviceDensity,
           description:
             "Camouflaging visible areas of the scalp to create the appearance of fuller hair.",
+          details: [
+            "Reducing the visibility of thinning areas",
+            "Creating the visual effect of natural hair density",
+            "Selecting pigment to match the hair and skin color",
+          ],
         },
         {
           number: "03",
           title: "Bald Area Camouflage",
+          imageAlt: "Bald area camouflage",
+          image: serviceBald,
           description:
-            "Creating the natural appearance of closely shaved hair through micropigmentation, reducing the visual contrast between the scalp and hair.",
+            "Creating the appearance of hair follicles through trichopigmentation, achieving a closely shaved look and a fuller, more polished appearance.",
+          details: [
+            "Baldness? There is a solution.",
+            "The visual effect of closely shaved hair",
+            "Personalized hairline design and color selection",
+          ],
         },
         {
           number: "04",
           title: "Scalp Camouflage for Alopecia",
+          imageAlt: "Scalp camouflage for alopecia",
+          image: serviceAlopecia,
           description:
             "Following an individual assessment, micropigmentation may help reduce the visibility of hairless areas.",
+          details: [
+            "Individual assessment of the scalp condition",
+            "Reducing the visibility of hairless areas",
+            "An approach tailored to individual skin characteristics",
+          ],
         },
         {
           number: "05",
           title: "Scar Camouflage",
+          imageAlt: "Scar camouflage",
+          image: serviceScar,
           description:
             "Reducing the visibility of certain scars caused by hair transplantation or other procedures, following an appropriate assessment.",
+          details: [
+            "Assessment of the scar and its healing",
+            "Selecting pigment to match the surrounding hair color",
+            "A personalized approach to reducing scar visibility",
+          ],
         },
         {
           number: "06",
           title: "Visual Density Enhancement After Hair Transplantation",
+          imageAlt: "Visual density enhancement after hair transplantation",
+          image: serviceTransplant,
           description:
             "Camouflaging remaining thinning areas and certain parts of the donor area after hair transplantation, once adequate healing has taken place.",
+          details: [
+            "Camouflaging remaining thinning areas after transplantation",
+            "Potential reduction in the visibility of certain donor-area scars",
+            "Treatment only after sufficient healing",
+          ],
         },
       ],
     },
@@ -628,43 +670,85 @@ const translations = {
       title: "Какие услуги я предлагаю?",
       learnMore: "Подробнее",
       bookNow: "Записаться на процедуру",
-    
+
       items: [
         {
           number: "01",
           title: "Формирование линии роста волос",
+          imageAlt: "Формирование линии роста волос",
+          image: serviceHairline,
           description:
             "Создание естественной и гармоничной линии роста волос с учетом формы лица и индивидуальных особенностей.",
+          details: [
+            "Индивидуальный подход с учетом формы лица",
+            "Естественно выглядящая линия роста волос",
+            "Индивидуальный подбор цвета и плотности пигмента",
+          ],
         },
         {
           number: "02",
-          title: "Визуальное уплотнение редеющих участков",
+          title: "Визуальное увеличение густоты редеющих волос",
+          imageAlt: "Визуальное увеличение густоты редеющих волос",
+          image: serviceDensity,
           description:
-            "Маскировка видимых участков кожи головы для создания эффекта более густых волос.",
+            "Маскировка заметных участков кожи головы для создания эффекта более густых волос.",
+          details: [
+            "Уменьшение заметности редеющих участков",
+            "Визуальный эффект естественной густоты волос",
+            "Подбор пигмента под цвет волос и кожи",
+          ],
         },
         {
           number: "03",
-          title: "Маскировка залысин и облысевших участков",
+          title: "Маскировка облысевших участков",
+          imageAlt: "Маскировка облысевших участков",
+          image: serviceBald,
           description:
-            "Создание естественного эффекта коротко сбритых волос с помощью микропигментации, чтобы уменьшить визуальный контраст между кожей головы и волосами.",
+            "Создание эффекта волосяных фолликулов с помощью трихопигментации, имитирующего коротко сбритые волосы и придающего внешности более ухоженный вид.",
+          details: [
+            "Облысение? Решение есть.",
+            "Визуальный эффект коротко сбритых волос",
+            "Индивидуальный подбор линии роста волос и оттенка пигмента",
+          ],
         },
         {
           number: "04",
           title: "Маскировка участков при алопеции",
+          imageAlt: "Маскировка кожи головы при алопеции",
+          image: serviceAlopecia,
           description:
             "После индивидуальной оценки микропигментация может помочь уменьшить заметность участков без волос.",
+          details: [
+            "Индивидуальная оценка состояния кожи головы",
+            "Уменьшение заметности участков без волос",
+            "Индивидуальный подход с учетом особенностей кожи",
+          ],
         },
         {
           number: "05",
           title: "Маскировка шрамов",
+          imageAlt: "Маскировка шрамов",
+          image: serviceScar,
           description:
             "Уменьшение заметности некоторых шрамов, появившихся после пересадки волос или других процедур, после соответствующей оценки.",
+          details: [
+            "Оценка состояния шрама и процесса заживления",
+            "Подбор пигмента под цвет окружающих волос",
+            "Индивидуальный подход к уменьшению заметности шрама",
+          ],
         },
         {
           number: "06",
           title: "Визуальное увеличение густоты после пересадки волос",
+          imageAlt: "Визуальное увеличение густоты после пересадки волос",
+          image: serviceTransplant,
           description:
-            "Маскировка оставшихся редеющих участков и отдельных зон донорской области после пересадки волос, после полного заживления.",
+            "Маскировка оставшихся редеющих участков и отдельных зон донорской области после пересадки волос, после достаточного заживления.",
+          details: [
+            "Маскировка оставшихся редеющих участков после пересадки",
+            "Возможность уменьшить заметность некоторых шрамов в донорской зоне",
+            "Проведение процедуры только после достаточного заживления",
+          ],
         },
       ],
     },
